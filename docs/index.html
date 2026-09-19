@@ -3,89 +3,54 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="How TishOS connects an Obsidian workspace to native Apple features: its note-first methodology, configurable workflows, device connections, and privacy choices.">
+  <meta name="description" content="TishOS is a personal experiment in organizing my life's data in Markdown. I am its developer and only current user.">
   <meta name="referrer" content="no-referrer">
-  <title>TishOS — Your information, connected</title>
+  <title>TishOS — A personal Markdown experiment</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header">
-    <a class="wordmark" href="./" aria-label="TishOS home">TishOS<span aria-hidden="true">.</span></a>
-    <nav aria-label="Main navigation"><a href="#how-it-works">How it works</a><a href="#method">Method</a><a href="privacy/">Privacy</a><a href="#support">Support</a></nav>
-  </header>
+  <header><nav aria-label="Main navigation"><a href="./" aria-current="page">About</a><a href="privacy/">Privacy policy</a><a href="#contact">Contact</a></nav></header>
   <main id="main">
-    <section class="intro" aria-labelledby="title">
-      <p class="eyebrow">A personal system built around your Obsidian vault</p>
-      <h1 id="title">Your information.<br>A connected system.</h1>
-      <p class="lead">TishOS connects notes, tasks, everyday records, and Apple system features around a workspace you control. Keep the detail in your vault. Bring the useful parts into the places where you act.</p>
-      <p class="status">In development · Internal TestFlight testing</p>
-      <div class="intro-links"><a href="#how-it-works">Understand the system</a><a href="privacy/">Read the privacy policy</a></div>
+    <h1>TishOS</h1>
+    <p>TishOS is my personal experiment in bringing the data from my life into Markdown. I built it for myself, and <strong>I am currently its only user</strong>.</p>
+    <p>I use Obsidian as the place where I keep and work with those files. I am building plugins and a small native Apple companion app to connect the parts that would otherwise require separate tools or manual copying.</p>
+    <p>This website documents the project and its data handling for anyone reviewing it, including Apple. The app is in personal development and internal TestFlight testing. There is no public app download or sign-up here.</p>
+
+    <section aria-labelledby="why"><h2 id="why">Why Markdown</h2>
+      <p>I want my notes, tasks, calendar events, food and workout logs, and financial records to live in a format I can read, edit, link, and keep using as my tools change. Markdown lets a record contain both structured properties and the ordinary explanation that belongs with it.</p>
+      <p>For example, an account can have its own note, while individual purchases are separate records linked to it. An exercise can have a note, while a workout records what I did on a particular day. I think of the persistent things as <em>entities</em> and the things that happen as <em>transactions</em>.</p>
+      <p>That is an organizing idea I am working toward, not a claim that every plugin already uses the same schema. Some supported records live in their own notes, which I call atomic notes; others are structured lines inside a note, or atomic lines. Property names, record types, and storage modes depend on the plugin and my configuration.</p>
+      <p>A calendar, list, or summary then becomes a view of the records. I want to be able to go from a total or a scheduled item back to the note that explains it.</p>
     </section>
 
-    <section class="section" id="how-it-works" aria-labelledby="how-title">
-      <div class="section-heading"><p class="eyebrow">How it works</p><h2 id="how-title">One workspace. Three distinct jobs.</h2><p>TishOS is a system of cooperating tools. The native app, Obsidian plugins, and vault each have a different responsibility.</p></div>
-      <div class="feature-list">
-        <article><span class="feature-index" aria-hidden="true">01</span><div><h3>The vault holds your records</h3><p>Notes, properties, links, and supported structured records live in your chosen Obsidian vault. A calendar, list, or summary is a way of looking at those records. Its presentation does not have to become another disconnected copy of your information.</p></div></article>
-        <article><span class="feature-index" aria-hidden="true">02</span><div><h3>TPS plugins provide the workflows</h3><p>Inside Obsidian, compatible TPS plugins provide tools such as calendars, contextual editing, reminders, and domain-specific logging. Their settings define the supported record structure and behavior. Controller coordinates the automations and integrations it owns; each plugin retains its own responsibilities.</p></div></article>
-        <article><span class="feature-index" aria-hidden="true">03</span><div><h3>The native app connects to Apple features</h3><p>The TishOS companion reads your authorized vault and prepares limited local views for widgets, notifications, Live Activities, and optional Siri or Spotlight access. Supported actions open the appropriate Obsidian note, view, or plugin workflow. The companion is not a full Markdown editor and does not run Obsidian plugins inside a widget.</p></div></article>
-      </div>
+    <section aria-labelledby="how"><h2 id="how">How the pieces work</h2>
+      <ul>
+        <li><strong>The Obsidian vault</strong> contains my Markdown files, properties, links, and attachments.</li>
+        <li><strong>The TPS plugins</strong> provide the editing, calendar, logging, and automation features inside Obsidian. Controller handles the reminders and external integrations it owns. Other plugins handle their own records and workflows.</li>
+        <li><strong>The native TishOS app</strong> connects the authorized vault to Apple features such as widgets, notifications, Live Activities, Shortcuts, and optional Siri or Spotlight access. It prepares limited local views and opens the relevant Obsidian workflow when needed. It does not run Obsidian plugins inside a widget or replace Obsidian as my editor.</li>
+      </ul>
+      <p>I authorize the vault on each device. Controller pairing is a separate step for supported commands and signed reminder schedules. Apple Health, search indexing, notifications, and other optional features have their own controls and permissions.</p>
+      <p>Most processing is local. Optional cross-device Relay uses my Apple account's private CloudKit database for limited display data. My vault's file-sync service is separate and can copy files between devices. The system is therefore not strictly offline or confined to one device.</p>
     </section>
 
-    <section class="section" id="method" aria-labelledby="method-title">
-      <div class="section-heading"><p class="eyebrow">The methodology</p><h2 id="method-title">Keep the record useful beyond one screen.</h2><p>The organizing idea is simple: information should have an understandable home, a stable identity, and relationships to the other things it concerns.</p></div>
-      <div class="principles">
-        <article><h3>A note can be a unit of work</h3><p>An <strong>atomic note</strong> represents one independently useful record: a task, an account, an exercise, or an event. Its properties make it filterable; its body keeps the explanation, context, and links close by. Supported workflows can also use an <strong>atomic line</strong> for a smaller record inside a note.</p></article>
-        <article><h3>Separate things from what happens</h3><p>An <strong>entity</strong> describes something that persists, such as an account or an exercise. A <strong>transaction</strong> describes an occurrence, such as a purchase or a workout entry. Linking occurrences to stable things makes history easier to review without overwriting the thing itself.</p></article>
-        <article><h3>Use views to answer questions</h3><p>The same records can support different questions: what is scheduled today, what is still open, or what contributed to a total? A saved Base view supplies supported filters, ordering, and presentation. The native companion materializes supported views for Apple surfaces; it does not reproduce every Obsidian formula or custom JavaScript view.</p></article>
-        <article><h3>Make automation accountable</h3><p>Use configured rules and properties to express intent. Preserve the distinction between a user's record and a derived display. Supported integrations use stable identifiers and guarded updates so refreshing a view need not mean creating the same record again.</p></article>
-      </div>
-      <div class="example"><p class="eyebrow">A concrete example</p><h3>An account and its transactions</h3><p>An account note can hold the account's identity and context. Separate transaction records can describe individual purchases and link back to that account. A monthly spending view then summarizes those records, while each purchase remains inspectable on its own.</p><p class="small">“Entity” and “transaction” describe the organizing approach. They are not a promise that every plugin already shares one universal schema or that those words must be your property names. Storage modes, supported types, and configurable keys still depend on the owning plugin.</p></div>
+    <section aria-labelledby="status"><h2 id="status">Current state</h2>
+      <p>I am developing and testing the companion on my Apple devices through internal TestFlight. It has iPhone, iPad, and Mac targets, with a baseline of iOS/iPadOS 18 and macOS 26. Individual features need newer systems or compatible hardware.</p>
+      <p>The work includes optional nutrition export and daily activity reads through Apple Health, as well as experimental Watch workout journals and capture drafts. A draft or exported document is not automatically an imported food, workout, or financial transaction.</p>
+      <p>Parts of the system are unfinished. Apple controls background execution and widget updates, and file synchronization can introduce delays. I am not claiming that every integration is complete, that refreshes are immediate, or that the internal builds are approved for public distribution.</p>
     </section>
 
-    <section class="section" id="daily-use" aria-labelledby="daily-title">
-      <div class="section-heading"><p class="eyebrow">From a record to an action</p><h2 id="daily-title">Bring the right context to the right place.</h2></div>
-      <div class="use-cases">
-        <article><h3>Plan from a calendar or list</h3><p>Choose a supported named Base view for a widget. Its filters and ordering determine what appears. A tap returns to the relevant view; supported line actions can hand off to the plugin's editor while keeping the surrounding context.</p></article>
-        <article><h3>Follow reminders and active work</h3><p>Controller's Reminder Rules determine reminder eligibility and timing. The companion verifies the paired schedule and asks Apple's notification system to deliver it. Separately enabled Live Activities can display a selected calendar's active item or a supported running timer.</p></article>
-        <article><h3>Review daily summaries</h3><p>Macro summaries and other supported projections turn compatible vault records into a glanceable view. Optional Apple Health integration has separate controls for selected nutrition writes and daily activity reads. A summary widget is a view of the supported data, not an independent nutrition database.</p></article>
-        <article><h3>Act through familiar entry points</h3><p>Supported Shortcuts, App Intents, and widget commands provide quick entry points into an authorized workflow. A visible handoff to Obsidian lets the owning plugin perform its action. Availability depends on the installed app, plugins, permissions, and operating system.</p></article>
-      </div>
+    <section aria-labelledby="financekit"><h2 id="financekit">Why I am requesting FinanceKit access</h2>
+      <p>I use Apple Card and Apple Savings and would like to bring their balances and transactions into the same personal Markdown system. FinanceKit would let the native app read my authorized Apple Wallet information, rather than requiring me to copy it manually.</p>
+      <p>The proposed connection would read supported account details, balances, and transactions on my iPhone. An encrypted relay through my vault's sync provider would deliver that information to my paired Controller device, where TPS Finances would maintain account and transaction notes. I would use those records for my own budgeting, spending review, and net-worth tracking. Apple Cash could use the same connection if I authorize it.</p>
+      <p><strong>This FinanceKit connection is not implemented or approved yet.</strong> I am requesting access for development and testing with my Individual Apple Developer membership. No payment initiation is planned. The native app's bundle ID is <code>com.zachtisherman.tishos</code>.</p>
+      <p>The <a href="privacy/#financekit">privacy policy</a> separates this proposed data flow from the features that already exist.</p>
     </section>
 
-    <section class="section" id="connections" aria-labelledby="connections-title">
-      <div class="section-heading"><p class="eyebrow">Setup and device boundaries</p><h2 id="connections-title">Connect deliberately, one device at a time.</h2></div>
-      <ol class="steps">
-        <li><h3>Choose your vault</h3><p>Use the native folder picker to authorize the intended vault on each device. TishOS scans supported records and prepares local display data. That choice does not automatically grant access to other folders.</p></li>
-        <li><h3>Pair Controller where needed</h3><p>Approve the companion's connection through Obsidian for supported commands and signed reminder schedules. Vault access and Controller pairing are separate connections; one does not silently grant the other.</p></li>
-        <li><h3>Select your surfaces</h3><p>Choose each widget's view or note. Enable notifications, Live Activities, Health access, or search integration only where useful. Some features require an additional disclosure or Apple permission.</p></li>
-        <li><h3>Choose whether to use Relay</h3><p>Optional Relay shares supported, limited workspace views through your Apple account's private iCloud database. It can help another device display current context. It is separate from the service syncing your vault files and does not replace attachment sync or make the entire vault available offline.</p></li>
-      </ol>
-      <aside class="callout"><h3>Background updates have real limits</h3><p>Apple controls background execution, notification delivery, Live Activity updates, and widget refreshes. Vault synchronization and file availability also take time. A feature can be configured correctly and still wait for data or an opportunity to run. TishOS reports connection and refresh state; it does not promise continuous iPhone execution or instant updates everywhere.</p></aside>
-    </section>
-
-    <section class="section" id="finance" aria-labelledby="finance-title">
-      <div class="section-heading"><p class="eyebrow">Planned · Apple approval required</p><h2 id="finance-title">Apple Wallet as another source for your records.</h2></div>
-      <p>We are pursuing FinanceKit approval for a read-only connection to supported Apple Card, Savings, and Apple Cash accounts. This feature is <strong>not implemented or available yet</strong>.</p>
-      <p>The intended flow is an explicitly authorized iPhone reading selected accounts, balances, and transactions, then delivering them to the user's paired Controller device through an encrypted vault relay. TPS Finances would maintain account and transaction notes for budgeting, spending review, and net-worth tracking. The resulting notes would follow the user's normal vault storage and sync settings.</p>
-      <p>This keeps the financial record inspectable and connected to the rest of the workspace. It does not mean the companion already has a bank connection, and it is not a plan to initiate payments. Approval, implementation, consent and deletion controls, and physical-device validation must precede availability.</p>
-      <p><a href="privacy/#financekit">Planned financial-data handling</a></p>
-    </section>
-
-    <section class="section availability" aria-labelledby="availability-title">
-      <h2 id="availability-title">Current availability</h2>
-      <p>The native companion is in internal TestFlight testing for iPhone, iPad, and Mac. It is not publicly available in the App Store. The current platform baseline is iOS/iPadOS 18 and macOS 26; individual features require newer versions or compatible hardware.</p>
-      <p>Some internal builds also include Watch workout journals and quick-capture drafts. Paired delivery and physical-device validation remain in testing. Draft export is separate from automatically creating a TPS food, workout, or finance record.</p>
-      <p>Features, data compatibility, and platform coverage vary by build. The companion's public information site does not make internal builds available, change permissions, or establish Apple approval for future integrations.</p>
-    </section>
-
-    <section class="support" id="support" aria-labelledby="support-title">
-      <p class="eyebrow">Questions and feedback</p><h2 id="support-title">Understand the connection before enabling it.</h2>
-      <p>The <a href="privacy/">privacy policy</a> describes data access, optional transfers, retention, and removal. TishOS is maintained by <a href="https://github.com/ZachTish">ZachTish</a>.</p>
-      <p><a class="button" href="https://github.com/ZachTish/tishos-website/issues/new/choose">Ask a question on GitHub</a></p>
-      <p class="small">GitHub issues are public and require a GitHub account to post. Share only non-sensitive details. Do not include private notes, health or financial records, credentials, or personal screenshots. Existing testers can also use their TestFlight feedback channel.</p>
+    <section aria-labelledby="contact"><h2 id="contact">Contact</h2>
+      <p>I maintain the project as <a href="https://github.com/ZachTish">ZachTish</a> on GitHub. Questions about the project or this policy can be raised in the <a href="https://github.com/ZachTish/tishos-website/issues">website repository</a>. Issues are public; please do not include private records or credentials.</p>
     </section>
   </main>
-  <footer><span>TishOS · Maintained by ZachTish</span><div><a href="privacy/">Privacy policy</a><a href="https://github.com/ZachTish/tishos-website">Website source</a></div></footer>
+  <footer><a href="privacy/">Privacy policy</a><a href="https://github.com/ZachTish/tishos-website">Website source</a></footer>
 </body>
 </html>
