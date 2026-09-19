@@ -16,10 +16,33 @@ The repository root is not the Pages publishing directory.
 
 For local preview, run `python3 -m http.server 4173 --bind 127.0.0.1 --directory docs`.
 
+## Page structure and scope
+
+The home page explains the vault/plugin/native-app roles, the note-first
+methodology, entity-versus-transaction examples, atomic notes and lines,
+daily workflows, per-device connection setup, background limits, current internal
+availability, and the unimplemented FinanceKit plan. The methodology is explicitly
+not a universal schema claim or a requirement to use fixed property names.
+
+The privacy page has a short summary, linked contents, data-category table,
+integration-specific sections, retention by store, security boundaries, and support
+and privacy-request routes. Native CloudKit display Relay, vault-file sync, and
+the proposed finance relay are different transports. Health exports and internal
+Watch journal/draft behavior are described separately from direct Health stores.
+No Apple approval, legal compliance certification, guaranteed background execution,
+or blanket end-to-end encryption is claimed.
+
+Both pages are intentionally text-only at the user's request. No screenshots,
+photos, icon assets, illustrations, or user data are included. Responsive rules
+collapse the two-column methodology and contents into one column. Light/dark
+palettes, keyboard focus, anchor destinations, semantic headings, table captions,
+and a skip link support reading and navigation. There is no persisted UI state.
+
 ## Content maintenance
 
 The September 18, 2026 policy was checked against the native app's specification,
-privacy manifests, Health client, Apple Intelligence bridge, and Relay boundaries.
+privacy manifests, Health client, Apple Intelligence bridge, Watch workout/capture
+contracts, and Relay boundaries.
 It distinguishes optional cloud/file-provider transfers from local processing,
 and current internal-test behavior from the unimplemented FinanceKit plan.
 Review the policy whenever permissions, providers, data destinations, retention,
@@ -38,3 +61,10 @@ public URLs and the stylesheet return HTTP 200 and match this checkout.
 
 Support issues are public. Do not request or upload private health/financial
 records, notes, screenshots, credentials, or runtime settings.
+
+The September 18 expansion passed local HTTP entrypoint checks, HTML nesting and
+metadata checks, unique-ID/label checks, internal-link/fragment and asset-path
+checks, text-only/no-script/no-external-asset checks, private-data pattern review,
+and WCAG AA normal-text contrast calculations in both themes. No browser visual
+or assistive-technology acceptance is claimed. Public deployment is verified
+against the exact source bytes after GitHub Pages finishes building.
