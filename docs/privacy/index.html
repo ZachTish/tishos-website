@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="How TishOS handles vault information, Apple Health, optional iCloud Relay, permissions, retention, and the planned FinanceKit connection.">
+  <meta name="referrer" content="no-referrer">
+  <title>Privacy policy — TishOS</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="wordmark" href="../" aria-label="TishOS home">TishOS<span aria-hidden="true">.</span></a>
+    <nav aria-label="Main navigation"><a href="../">About</a><a href="./" aria-current="page">Privacy</a><a href="../#support">Support</a></nav>
+  </header>
+  <main id="main" class="policy">
+    <div class="policy-heading"><p class="eyebrow">Effective September 18, 2026</p><h1>Privacy policy</h1><p class="lead">Your information powers your workspace. This page explains where it goes and what you control.</p></div>
+    <p>This policy covers the native TishOS companion app, maintained by ZachTish, and this informational website. TishOS is currently in internal TestFlight testing. Features vary by platform and build. The proposed FinanceKit connection is described separately below and is not currently available.</p>
+    <section aria-labelledby="local"><h2 id="local">1. Local processing and your vault</h2>
+      <p>You choose which Obsidian vault the app can access. TishOS reads supported notes and configuration to create local views of calendars, reminders, nutrition summaries, note previews, and other selected workspace information. It keeps preferences, file-access permissions, connection information, and derived caches on your device. Pairing secrets use device-local credential storage.</p>
+      <p>The companion does not operate a developer-hosted account or upload your vault to a developer-operated server. It does not include advertising or third-party analytics or tracking SDKs, and it does not sell personal information. This does not mean information can never leave your device: the optional connections below and your chosen vault sync provider can transfer it.</p>
+      <p>Supported actions can write to an authorized vault or hand off to Obsidian and its plugins. Those plugins are separate software with their own settings and data handling. A vault stored in iCloud Drive, Obsidian Sync, Dropbox, or another provider follows that provider's storage, backup, and synchronization behavior.</p>
+    </section>
+    <section aria-labelledby="surfaces"><h2 id="surfaces">2. Widgets, reminders, and system features</h2>
+      <p>The app and its widget extension share limited local display data, which can include note titles, sanitized excerpts, calendar details, and daily summaries. Some preview data is prepared before a particular widget is placed. Widgets read this local cache; they do not independently access a network.</p>
+      <p>Notifications, Live Activities, and optionally enabled Siri or Spotlight integration can show selected workspace information on Apple system surfaces, including the Lock Screen. Readable Siri content and Live Activity content have separate consent controls. Device and notification privacy settings affect what other people can see.</p>
+    </section>
+    <section aria-labelledby="relay"><h2 id="relay">3. Optional cross-device Relay</h2>
+      <p>If you enable Relay, TishOS uses your Apple account's private CloudKit database to transfer supported, limited workspace projections between your authorized devices. These can include selected note excerpts, calendar and summary information, and reminder display details. Channel information uses Apple's iCloud key-value storage.</p>
+      <p>Relay is not a public database or a complete vault backup. File-access bookmarks and pairing credentials are not included in these projections. Apple operates the iCloud infrastructure; its <a href="https://www.apple.com/legal/privacy/">privacy policy</a> and your account settings apply.</p>
+    </section>
+    <section aria-labelledby="health"><h2 id="health">4. Optional Apple Health integration</h2>
+      <p>Apple Health integration is off by default. On supported devices, you choose the directions and data categories to authorize through Apple's permission system:</p>
+      <ul>
+        <li><strong>Nutrition export:</strong> write supported food entries to Apple Health. Depending on the build and your selections, categories include dietary energy, protein, carbohydrates, total and individual fats, fiber, sugar, sodium, cholesterol, potassium, caffeine, and water.</li>
+        <li><strong>Activity import:</strong> read current-day totals for steps, active energy, exercise time, walking/running distance, and flights climbed.</li>
+      </ul>
+      <p>TishOS uses this information for the selected nutrition and activity features, not advertising, profiling, or data mining. The private Health synchronization ledger and activity snapshot remain on the device and are excluded from app-managed cloud Relay and device backup. A limited daily activity widget, where supported and enabled, has a separate local display projection.</p>
+      <p>Some internal test builds also offer separately confirmed writing of daily activity summaries into vault files. Such files can be uploaded by the vault's chosen sync provider and displayed by configured workspace views. This test feature is not a claim of approval for public distribution. It is distinct from directly uploading the private Health ledger or raw Health samples.</p>
+    </section>
+    <section aria-labelledby="ai"><h2 id="ai">5. Optional Apple Intelligence requests</h2>
+      <p>Supported builds can process explicitly requested text jobs from TPS AI Gateway using Apple's on-device model. Prompts and results are stored in the selected vault request files, so the vault's sync provider may copy those files. The current integration does not have approval for Apple's managed Private Cloud Compute access and does not promise that service. Other AI providers selected in Obsidian plugins have their own data handling and are outside this native app integration.</p>
+    </section>
+    <section aria-labelledby="financekit"><h2 id="financekit">6. Planned Apple Wallet connection</h2>
+      <p><strong>FinanceKit approval is being pursued. This feature is not implemented or available, and the current companion does not read Apple Wallet financial data.</strong></p>
+      <p>The intended feature will request your permission to read supported Apple Card, Savings, and Apple Cash accounts, balances, and transactions. Authorized information would pass from your iPhone to your paired Controller device and user-controlled vault for budgeting, spending review, and net-worth tracking. The planned transport is an encrypted relay through your selected vault sync provider; resulting account and transaction notes would follow your vault's normal storage and sharing settings. No payment initiation is planned.</p>
+      <p>This policy will be updated to reflect the verified implementation, its consent controls, storage, and deletion behavior before the connection is made available.</p>
+    </section>
+    <section aria-labelledby="control"><h2 id="control">7. Retention, deletion, and your choices</h2>
+      <p>Local preferences and derived data are retained while needed for the features you use. You can disable integrations, revoke Apple permissions in system settings, or unlink the vault. Unlinking or opting out clears or invalidates the related local display and indexing data; if a cleanup fails, the app retains cleanup work for retry.</p>
+      <p>Turning off Relay on the publishing device requests removal of its active CloudKit projection. Disabling a receiving device's Relay clears that receiver's imported state; it does not erase your source vault or another device's source data. Cloud cleanup requires service availability and may complete later.</p>
+      <p>Disabling Health integration stops future synchronization; it does not automatically erase previously written Health entries or vault notes. A minimal local ownership ledger can remain to manage previously written Health entries and prevent duplicates. You can manage Health permissions and delete TishOS-created entries in Apple Health. TishOS does not delete another app's Health entries.</p>
+      <p>Deleting the app does not automatically erase independent vault files, synchronized copies, backups, or records already written to Apple Health. Manage those copies through Obsidian, Apple Health, or the storage provider you selected. The developer has no central copy of your vault or Health records to delete on your behalf.</p>
+    </section>
+    <section aria-labelledby="website"><h2 id="website">8. This website and support</h2>
+      <p>This website uses no analytics scripts, advertising, forms, cookies, or browser storage of its own. GitHub Pages hosts it and logs visitor IP addresses for security purposes. GitHub handles that hosting information under its <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">privacy statement</a>.</p>
+      <p>If you contact us through <a href="https://github.com/ZachTish/tishos-website/issues/new/choose">GitHub issues</a>, the information you submit, including your GitHub identity, becomes a public support record. It is used to answer your question or investigate the issue and may remain in the repository history. Please do not submit health or financial records, credentials, private notes, or other sensitive information. GitHub provides the controls for your account and submitted content.</p>
+      <p>Apple may separately process App Store or TestFlight installation, diagnostic, and feedback information under its policies. Information you choose to share through TestFlight feedback can be available to the developer for testing and support.</p>
+    </section>
+    <section aria-labelledby="changes"><h2 id="changes">9. Changes and contact</h2>
+      <p>We will update this page when the app's data handling changes and show the effective date above. For a privacy question, contact ZachTish through the <a href="https://github.com/ZachTish/tishos-website/issues/new/choose">public support channel</a>, using only non-sensitive details.</p>
+    </section>
+  </main>
+  <footer><span>TishOS · Maintained by ZachTish</span><a href="../">About TishOS</a></footer>
+</body>
+</html>
